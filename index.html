@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prof. Balaji Design System - Component Showcase</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* Showcase-specific styles */
+    .showcase-section {
+      margin-bottom: var(--space-xl);
+    }
+
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+
+    .component-example {
+      background: white;
+      padding: var(--space-lg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .color-swatch {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .color-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .color-preview {
+      height: 100px;
+    }
+
+    .color-info {
+      padding: var(--space-sm);
+      background: var(--color-light-gray);
+      font-size: var(--size-small);
+      text-align: left;
+    }
+
+    .color-name {
+      font-weight: var(--weight-bold);
+      margin-bottom: var(--space-xs);
+    }
+
+    .color-hex {
+      font-family: monospace;
+      color: var(--color-text-muted);
+    }
+
+    .spacing-demo {
+      background: linear-gradient(90deg, var(--color-teal) 0%, var(--color-teal) 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: var(--weight-bold);
+      border-radius: var(--radius-md);
+      margin: var(--space-sm) 0;
+    }
+
+    .spacing-xs { padding: var(--space-xs); min-height: 30px; }
+    .spacing-sm { padding: var(--space-sm); min-height: 50px; }
+    .spacing-md { padding: var(--space-md); min-height: 70px; }
+    .spacing-lg { padding: var(--space-lg); min-height: 100px; }
+    .spacing-xl { padding: var(--space-xl); min-height: 150px; }
+
+    .typography-example {
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-lg);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .typography-example:last-child {
+      border-bottom: none;
+    }
+
+    .typography-label {
+      font-size: var(--size-small);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wide);
+      margin-bottom: var(--space-xs);
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .quiz-option {
+      display: flex;
+      align-items: center;
+      padding: var(--space-md);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .quiz-option:hover {
+      border-color: var(--color-teal);
+      background-color: rgba(4, 154, 143, 0.05);
+    }
+
+    .quiz-option input[type="radio"] {
+      margin-right: var(--space-md);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+
+    .mindmap-chapter {
+      padding: var(--space-lg);
+      background: linear-gradient(135deg, var(--color-light-gray) 0%, white 100%);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all var(--transition-base);
+      text-align: center;
+    }
+
+    .mindmap-chapter:hover {
+      border-color: var(--color-teal);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .tabs-container {
+      margin-top: var(--space-lg);
+    }
+
+    .tabs-header {
+      display: flex;
+      gap: var(--space-md);
+      border-bottom: 2px solid var(--color-border);
+      overflow-x: auto;
+    }
+
+    .tab {
+      padding: var(--space-md) var(--space-lg);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: var(--weight-medium);
+      color: var(--color-text-muted);
+      border-bottom: 3px solid transparent;
+      transition: all var(--transition-fast);
+    }
+
+    .tab.active {
+      color: var(--color-navy);
+      border-bottom-color: var(--color-gold);
+    }
+
+    .tab:hover {
+      color: var(--color-navy);
+    }
+
+    .tab-content {
+      padding: var(--space-lg) 0;
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .animation-demo {
+      padding: var(--space-lg);
+      background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-navy) 100%);
+      color: white;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      margin: var(--space-md) 0;
+      cursor: pointer;
+    }
+
+    .form-example {
+      max-width: 500px;
+      margin: var(--space-lg) 0;
+      padding: var(--space-lg);
+      background: var(--color-light-gray);
+      border-radius: var(--radius-lg);
+    }
+
+    .responsive-demo {
+      padding: var(--space-lg);
+      background: var(--color-teal);
+      color: white;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      margin: var(--space-md) 0;
+    }
+
+    @media (max-width: 767px) {
+      .responsive-demo {
+        background: #e74c3c;
+      }
+      .responsive-demo::after {
+        content: ' (Mobile)';
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .responsive-demo {
+        background: #f39c12;
+      }
+      .responsive-demo::after {
+        content: ' (Tablet)';
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .responsive-demo {
+        background: var(--color-teal);
+      }
+      .responsive-demo::after {
+        content: ' (Desktop)';
+      }
+    }
+
+    .toc {
+      position: sticky;
+      top: 90px;
+      background: white;
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+
+    .toc h3 {
+      margin-bottom: var(--space-md);
+    }
+
+    .toc a {
+      display: block;
+      padding: var(--space-xs) 0;
+      color: var(--color-teal);
+      text-decoration: none;
+      font-size: var(--size-small);
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+    }
+
+    .code-example {
+      background: var(--color-navy);
+      color: #e8e8e8;
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: var(--size-small);
+      margin: var(--space-lg) 0;
+      line-height: 1.6;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: var(--space-xs) var(--space-sm);
+      background: var(--color-gold);
+      color: var(--color-navy);
+      border-radius: var(--radius-full);
+      font-size: var(--size-tiny);
+      font-weight: var(--weight-bold);
+      text-transform: uppercase;
+      margin-right: var(--space-xs);
+    }
+
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--color-gold);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: var(--shadow-lg);
+      z-index: 999;
+      animation: slideInRight 0.3s ease-out;
+    }
+
+    .scroll-to-top:hover {
+      background: #d4a428;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-logo">
+    <a href="#top">🎓 Prof. Balaji</a>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav>
+    <a href="#typography">Typography</a>
+    <a href="#colors">Colors</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#cards">Cards</a>
+    <a href="#forms">Forms</a>
+    <a href="#components">Components</a>
+    <a href="#animations">Animations</a>
+    <a href="#responsive">Responsive</a>
+  </nav>
+  <div class="header-actions">
+    <button class="btn btn-primary btn-sm">Docs</button>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- HERO SECTION -->
+  <section id="top" style="text-align: center; padding: var(--space-3xl) var(--space-lg);">
+    <h1 class="fade-in-up" style="animation: fadeInUp 0.8s ease-out;">Prof. Balaji Design System</h1>
+    <p class="fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.2s both; color: var(--color-text-muted); font-size: var(--size-h4);">
+      A comprehensive design system for consistent, beautiful, and accessible interfaces
+    </p>
+    <div style="margin-top: var(--space-lg);">
+      <span class="badge">Colors</span>
+      <span class="badge">Typography</span>
+      <span class="badge">Components</span>
+      <span class="badge">Animations</span>
+      <span class="badge">Responsive</span>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY SECTION -->
+  <section id="typography">
+    <div class="section-title">
+      <h2>Typography</h2>
+      <p>Consistent heading and body text styles across all platforms</p>
+    </div>
+
+    <div class="container">
+      <div class="typography-example scroll-fade-in">
+        <div class="typography-label">Heading 1</div>
+        <h1>This is an H1 Heading</h1>
+        <div class="code-example">font-size: var(--size-h1); font-weight: 700;</div>
+      </div>
+
+      <div class="typography-example scroll-fade-in">
+        <div class="typography-label">Heading 2</div>
+        <h2>This is an H2 Heading</h2>
+        <div class="code-example">font-size: var(--size-h2); font-weight: 700;</div>
+      </div>
+
+      <div class="typography-example scroll-fade-in">
+        <div class="typography-label">Heading 3</div>
+        <h3>This is an H3 Heading</h3>
+        <div class="code-example">font-size: var(--size-h3); font-weight: 600;</div>
+      </div>
+
+      <div class="typography-example scroll-fade-in">
+        <div class="typography-label">Body Text</div>
+        <p>This is regular body text. It should be readable and comfortable for extended periods. The default font size is 16px with a line height of 1.6 for optimal readability. This is the primary text used throughout the interface.</p>
+        <div class="code-example">font-size: 1rem; line-height: 1.6; color: #333;</div>
+      </div>
+
+      <div class="typography-example scroll-fade-in">
+        <div class="typography-label">Small Text</div>
+        <small>This is small text, typically used for helper text, labels, or captions.</small>
+        <div class="code-example">font-size: var(--size-small); color: var(--color-text-muted);</div>
+      </div>
+
+      <div class="typography-example scroll-fade-in">
+        <div class="typography-label">Text Styles</div>
+        <p><strong>Bold text</strong> for emphasis</p>
+        <p><em>Italic text</em> for additional emphasis</p>
+        <p><code>Code text</code> for technical references</p>
+        <div class="code-example">font-weight: 700; font-style: italic; font-family: monospace;</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLORS SECTION -->
+  <section id="colors">
+    <div class="section-title">
+      <h2>Color Palette</h2>
+      <p>Brand colors, functional colors, and accessibility considerations</p>
+    </div>
+
+    <div class="container">
+      <h3>Primary Brand Colors</h3>
+      <div class="color-swatch">
+        <div class="color-item scroll-fade-in">
+          <div class="color-preview" style="background-color: #0D2955;"></div>
+          <div class="color-info">
+            <div class="color-name">Navy</div>
+            <div class="color-hex">#0D2955</div>
+          </div>
+        </div>
+        <div class="color-item scroll-fade-in">
+          <div class="color-preview" style="background-color: #EDB538;"></div>
+          <div class="color-info">
+            <div class="color-name">Gold</div>
+            <div class="color-hex">#EDB538</div>
+          </div>
+        </div>
+        <div class="color-item scroll-fade-in">
+          <div class="color-preview" style="background-color: #049A8F;"></div>
+          <div class="color-info">
+            <div class="color-name">Teal</div>
+            <div class="color-hex">#049A8F</div>
+          </div>
+        </div>
+        <div class="color-item scroll-fade-in">
+          <div class="color-preview" style="background-color: #F7F3EE;"></div>
+          <div class="color-info">
+            <div class="color-name">Paper</div>
+            <div class="color-hex">#F7F3EE</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Functional Colors</h3>
+      <div class="color-swatch">
+        <div class="color-item scroll-fade-in">
+          <div class="color-preview" style="background-color: #28a745;"></div>
+          <div class="color-info">
+            <div class="color-name">Success</div>
+            <div class="color-hex">#28a745</div>
+          </div>
+        </div>
+        <div class="color-item scroll-fade-in">
+          <div class="color-preview" style="background-color: #dc3545;"></div>
+          <div class="color-info">
+            <div class="color-name">Error</div>
+            <div class="color-hex">#dc3545</div>
+          </div>
+        </div>
+        <div class="color-item scroll-fade-in">
+          <div class="color-preview" style="background-color: #ffc107;"></div>
+          <div class="color-info">
+            <div class="color-name">Warning</div>
+            <div class="color-hex">#ffc107</div>
+          </div>
+        </div>
+        <div class="color-item scroll-fade-in">
+          <div class="color-preview" style="background-color: #17a2b8;"></div>
+          <div class="color-info">
+            <div class="color-name">Info</div>
+            <div class="color-hex">#17a2b8</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUTTONS SECTION -->
+  <section id="buttons">
+    <div class="section-title">
+      <h2>Buttons</h2>
+      <p>Interactive button states and variations</p>
+    </div>
+
+    <div class="container">
+      <h3>Primary Buttons</h3>
+      <div class="component-grid">
+        <div class="component-example scroll-fade-in">
+          <button class="btn btn-primary">Primary</button>
+          <p style="margin-top: var(--space-md); font-size: var(--size-small);">Normal State</p>
+        </div>
+        <div class="component-example scroll-fade-in">
+          <button class="btn btn-primary" disabled>Disabled</button>
+          <p style="margin-top: var(--space-md); font-size: var(--size-small);">Disabled State</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Secondary Buttons</h3>
+      <div class="component-grid">
+        <div class="component-example scroll-fade-in">
+          <button class="btn btn-secondary">Secondary</button>
+          <p style="margin-top: var(--space-md); font-size: var(--size-small);">Normal State</p>
+        </div>
+        <div class="component-example scroll-fade-in">
+          <button class="btn btn-secondary" disabled>Disabled</button>
+          <p style="margin-top: var(--space-md); font-size: var(--size-small);">Disabled State</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Outline Buttons</h3>
+      <div class="component-grid">
+        <div class="component-example scroll-fade-in">
+          <button class="btn btn-outline">Outline</button>
+          <p style="margin-top: var(--space-md); font-size: var(--size-small);">Normal State</p>
+        </div>
+        <div class="component-example scroll-fade-in">
+          <button class="btn btn-outline" disabled>Disabled</button>
+          <p style="margin-top: var(--space-md); font-size: var(--size-small);">Disabled State</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Button Sizes</h3>
+      <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; align-items: center;">
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary">Medium</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Full Width Button</h3>
+      <button class="btn btn-primary btn-block">Full Width Button</button>
+    </div>
+  </section>
+
+  <!-- CARDS SECTION -->
+  <section id="cards">
+    <div class="section-title">
+      <h2>Cards</h2>
+      <p>Reusable card components for different use cases</p>
+    </div>
+
+    <div class="container">
+      <div class="component-grid">
+        <div class="card card-feature scroll-fade-in">
+          <h3>Feature Card</h3>
+          <p>This is a feature card. It's great for highlighting key features or benefits of your service.</p>
+          <button class="btn btn-primary btn-sm">Learn More</button>
+        </div>
+
+        <div class="card card-stat scroll-fade-in">
+          <div class="stat-number">1500+</div>
+          <div class="stat-label">Active Students</div>
+        </div>
+
+        <div class="card card-quiz scroll-fade-in">
+          <h3>Physics Chapter 1</h3>
+          <p>Mechanics and Motion</p>
+          <p style="font-size: var(--size-small); color: var(--color-text-muted); margin: 0;">20 Questions</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Result Card</h3>
+      <div class="card card-result scroll-fade-in" style="max-width: 500px;">
+        <h3 style="color: var(--color-success);">✓ Test Completed</h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin: var(--space-lg) 0;">
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; font-weight: bold; color: var(--color-navy);">18</div>
+            <p style="margin: 0; font-size: var(--size-small); color: var(--color-text-muted);">Score</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; font-weight: bold; color: var(--color-navy);">90%</div>
+            <p style="margin: 0; font-size: var(--size-small); color: var(--color-text-muted);">Accuracy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMS SECTION -->
+  <section id="forms">
+    <div class="section-title">
+      <h2>Form Elements</h2>
+      <p>Input fields, selects, checkboxes, and form validation states</p>
+    </div>
+
+    <div class="container">
+      <div class="form-example scroll-fade-in">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="your@email.com">
+          <div class="form-help">We'll never share your email with anyone else.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option>Select a subject</option>
+            <option>Physics</option>
+            <option>Chemistry</option>
+            <option>Biology</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="Enter your message here..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <input type="checkbox" id="agree">
+          <label for="agree">I agree to the terms and conditions</label>
+        </div>
+
+        <button class="btn btn-primary btn-block">Submit</button>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Validation States</h3>
+      <div class="form-example scroll-fade-in">
+        <div class="form-group">
+          <label for="success-input">Success State</label>
+          <input type="text" id="success-input" class="success" value="Looks good!">
+          <div class="form-success">✓ This field is valid</div>
+        </div>
+
+        <div class="form-group">
+          <label for="error-input">Error State</label>
+          <input type="text" id="error-input" class="error" value="Invalid input">
+          <div class="form-error">✗ This field has an error</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS SECTION -->
+  <section id="components">
+    <div class="section-title">
+      <h2>Components</h2>
+      <p>Layout components and page sections</p>
+    </div>
+
+    <!-- QUIZ LAYOUT -->
+    <div class="container">
+      <h3>Quiz Interface</h3>
+      <div class="card card-quiz scroll-fade-in" style="margin-top: var(--space-lg);">
+        <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-lg);">
+          <span><strong>Question 5 of 20</strong></span>
+          <span><strong>Time: 15:45</strong></span>
+        </div>
+
+        <div style="margin-bottom: var(--space-lg);">
+          <p style="font-size: var(--size-h5); margin-bottom: var(--space-md);"><strong>What is the chemical formula of sodium chloride?</strong></p>
+        </div>
+
+        <div class="quiz-options">
+          <label class="quiz-option">
+            <input type="radio" name="quiz-answer">
+            <span>A) NaCl</span>
+          </label>
+          <label class="quiz-option">
+            <input type="radio" name="quiz-answer">
+            <span>B) Na₂Cl</span>
+          </label>
+          <label class="quiz-option">
+            <input type="radio" name="quiz-answer">
+            <span>C) NaCl₂</span>
+          </label>
+          <label class="quiz-option">
+            <input type="radio" name="quiz-answer">
+            <span>D) Na₃Cl</span>
+          </label>
+        </div>
+
+        <div style="display: flex; gap: var(--space-md); margin-top: var(--space-lg);">
+          <button class="btn btn-outline">← Previous</button>
+          <button class="btn btn-primary">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS LAYOUT -->
+    <div class="container">
+      <h3 style="margin-top: var(--space-xl);">Results Page</h3>
+      <div style="margin-top: var(--space-lg);">
+        <div class="card card-stat scroll-fade-in" style="margin-bottom: var(--space-lg);">
+          <div class="stat-number" style="color: var(--color-success);">18/20</div>
+          <div class="stat-label">Your Score</div>
+        </div>
+
+        <h4>Performance Breakdown</h4>
+        <div class="results-grid">
+          <div class="card scroll-fade-in">
+            <h5>Physics Ch 1</h5>
+            <div style="font-size: 1.5rem; color: var(--color-success);">4/5</div>
+            <p style="margin: 0; font-size: var(--size-small); color: var(--color-text-muted);">80% Correct</p>
+          </div>
+          <div class="card scroll-fade-in">
+            <h5>Physics Ch 2</h5>
+            <div style="font-size: 1.5rem; color: var(--color-success);">5/5</div>
+            <p style="margin: 0; font-size: var(--size-small); color: var(--color-text-muted);">100% Correct</p>
+          </div>
+          <div class="card scroll-fade-in">
+            <h5>Physics Ch 3</h5>
+            <div style="font-size: 1.5rem; color: #ffc107;">3/4</div>
+            <p style="margin: 0; font-size: var(--size-small); color: var(--color-text-muted);">75% Correct</p>
+          </div>
+          <div class="card scroll-fade-in">
+            <h5>Chemistry Ch 1</h5>
+            <div style="font-size: 1.5rem; color: var(--color-success);">6/6</div>
+            <p style="margin: 0; font-size: var(--size-small); color: var(--color-text-muted);">100% Correct</p>
+          </div>
+        </div>
+
+        <div style="margin-top: var(--space-lg);">
+          <button class="btn btn-primary" style="margin-right: var(--space-md);">Download PDF</button>
+          <button class="btn btn-secondary">Retake Quiz</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MINDMAP LAYOUT -->
+    <div class="container">
+      <h3 style="margin-top: var(--space-xl);">Mindmap Page Layout</h3>
+      <div style="margin-top: var(--space-lg);">
+        <div style="margin-bottom: var(--space-lg);">
+          <label for="board-select">Select Your Board:</label>
+          <select id="board-select" style="width: 100%; max-width: 300px;">
+            <option>Class 12 - TN State Board</option>
+            <option>Class 12 - CBSE</option>
+            <option>Class 10 - Science</option>
+          </select>
+        </div>
+
+        <div class="tabs-container scroll-fade-in">
+          <div class="tabs-header">
+            <button class="tab active">Physics</button>
+            <button class="tab">Chemistry</button>
+          </div>
+          <div class="tab-content active">
+            <h4 style="margin: var(--space-lg) 0 var(--space-md) 0;">Physics Chapters</h4>
+            <div class="component-grid">
+              <div class="mindmap-chapter">
+                <h5>Chapter 1</h5>
+                <p style="margin: 0; color: var(--color-text-muted); font-size: var(--size-small);">Mechanics</p>
+              </div>
+              <div class="mindmap-chapter">
+                <h5>Chapter 2</h5>
+                <p style="margin: 0; color: var(--color-text-muted); font-size: var(--size-small);">Thermodynamics</p>
+              </div>
+              <div class="mindmap-chapter">
+                <h5>Chapter 3</h5>
+                <p style="margin: 0; color: var(--color-text-muted); font-size: var(--size-small);">Waves & Sound</p>
+              </div>
+              <div class="mindmap-chapter">
+                <h5>Chapter 4</h5>
+                <p style="margin: 0; color: var(--color-text-muted); font-size: var(--size-small);">Light & Optics</p>
+              </div>
+              <div class="mindmap-chapter">
+                <h5>Chapter 5</h5>
+                <p style="margin: 0; color: var(--color-text-muted); font-size: var(--size-small);">Electricity</p>
+              </div>
+              <div class="mindmap-chapter">
+                <h5>Chapter 6</h5>
+                <p style="margin: 0; color: var(--color-text-muted); font-size: var(--size-small);">Magnetism</p>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content">
+            <h4 style="margin: var(--space-lg) 0 var(--space-md) 0;">Chemistry Chapters</h4>
+            <div class="component-grid">
+              <div class="mindmap-chapter">
+                <h5>Chapter 1</h5>
+                <p style="margin: 0; color: var(--color-text-muted); font-size: var(--size-small);">Atomic Structure</p>
+              </div>
+              <div class="mindmap-chapter">
+                <h5>Chapter 2</h5>
+                <p style="margin: 0; color: var(--color-text-muted); font-size: var(--size-small);">Bonding</p>
+              </div>
+              <div class="mindmap-chapter">
+                <h5>Chapter 3</h5>
+                <p style="margin: 0; color: var(--color-text-muted); font-size: var(--size-small);">Reactions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANIMATIONS SECTION -->
+  <section id="animations">
+    <div class="section-title">
+      <h2>Animations & Effects</h2>
+      <p>Smooth transitions, hover effects, and interactive animations</p>
+    </div>
+
+    <div class="container">
+      <h3>Scroll Fade-In Animation</h3>
+      <p>Elements below fade in as you scroll:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); margin-top: var(--space-lg);">
+        <div class="card scroll-fade-in">
+          <h4>Fade In Up</h4>
+          <p>This element fades in and slides up as it enters the viewport.</p>
+        </div>
+        <div class="card scroll-fade-in">
+          <h4>Consistent Animation</h4>
+          <p>All elements use the same smooth animation for consistency.</p>
+        </div>
+        <div class="card scroll-fade-in">
+          <h4>Performance</h4>
+          <p>Animations use CSS for smooth 60fps performance.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Hover Effects</h3>
+      <p>Hover over cards and buttons to see interactive effects:</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); margin-top: var(--space-lg);">
+        <div class="card hover-lift">
+          <h4>Lift Effect</h4>
+          <p>Card lifts and shadow increases on hover.</p>
+        </div>
+        <div class="card hover-scale">
+          <h4>Scale Effect</h4>
+          <p>Card slightly scales up on hover.</p>
+        </div>
+        <button class="btn btn-primary" style="height: fit-content;">Click Me</button>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Loading Animation</h3>
+      <div style="padding: var(--space-lg); background: var(--color-light-gray); border-radius: var(--radius-lg); text-align: center;">
+        <div class="spinner" style="margin: 0 auto;"></div>
+        <p style="margin-top: var(--space-md);">Loading...</p>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Button Click Animation</h3>
+      <button class="btn btn-primary" onclick="alert('Button clicked with ripple effect!')">Click for Ripple Effect</button>
+    </div>
+  </section>
+
+  <!-- RESPONSIVE SECTION -->
+  <section id="responsive">
+    <div class="section-title">
+      <h2>Responsive Design</h2>
+      <p>Resize your browser to see responsive breakpoints</p>
+    </div>
+
+    <div class="container">
+      <p>The design system uses mobile-first approach with the following breakpoints:</p>
+      
+      <div style="display: grid; gap: var(--space-md); margin-top: var(--space-lg);">
+        <div class="responsive-demo">Mobile (< 576px)</div>
+        <div class="responsive-demo">Responsive (Changes on resize)</div>
+        <div class="responsive-demo">Current Size</div>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Responsive Grid</h3>
+      <p style="color: var(--color-text-muted); font-size: var(--size-small);">Resize your browser to see grid adjust:</p>
+      <div class="component-grid" style="margin-top: var(--space-lg);">
+        <div class="card scroll-fade-in">
+          <h4>Grid Item 1</h4>
+          <p>Automatically adjusts columns</p>
+        </div>
+        <div class="card scroll-fade-in">
+          <h4>Grid Item 2</h4>
+          <p>Based on viewport width</p>
+        </div>
+        <div class="card scroll-fade-in">
+          <h4>Grid Item 3</h4>
+          <p>Mobile: 1 col, Tablet: 2 col, Desktop: 3+ col</p>
+        </div>
+        <div class="card scroll-fade-in">
+          <h4>Grid Item 4</h4>
+          <p>Using CSS Grid auto-fit</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Responsive Typography</h3>
+      <div class="scroll-fade-in" style="margin-top: var(--space-lg);">
+        <p style="font-size: var(--size-small); color: var(--color-text-muted);">Font sizes automatically adjust on smaller screens:</p>
+        <h1 style="margin: var(--space-md) 0;">This H1 is Responsive</h1>
+        <h2 style="margin: var(--space-md) 0;">This H2 is Responsive</h2>
+        <h3 style="margin: var(--space-md) 0;">This H3 is Responsive</h3>
+      </div>
+
+      <h3 style="margin-top: var(--space-xl);">Mobile Navigation</h3>
+      <p style="color: var(--color-text-muted); font-size: var(--size-small);">On mobile, the header navigation collapses into a hamburger menu (visible at small viewport sizes).</p>
+    </div>
+  </section>
+
+  <!-- SPACING SECTION -->
+  <section style="padding: var(--space-2xl) var(--space-lg); background: white;">
+    <h2 style="text-align: center; margin-bottom: var(--space-xl);">Spacing System</h2>
+    <div class="container">
+      <p style="text-align: center; color: var(--color-text-muted); margin-bottom: var(--space-lg);">
+        Consistent spacing scale used throughout the design system
+      </p>
+
+      <div style="max-width: 500px; margin: 0 auto;">
+        <div style="margin-bottom: var(--space-lg);">
+          <p style="font-size: var(--size-small); color: var(--color-text-muted); margin-bottom: var(--space-sm);">XS (8px)</p>
+          <div class="spacing-demo spacing-xs">var(--space-xs)</div>
+        </div>
+
+        <div style="margin-bottom: var(--space-lg);">
+          <p style="font-size: var(--size-small); color: var(--color-text-muted); margin-bottom: var(--space-sm);">SM (16px)</p>
+          <div class="spacing-demo spacing-sm">var(--space-sm)</div>
+        </div>
+
+        <div style="margin-bottom: var(--space-lg);">
+          <p style="font-size: var(--size-small); color: var(--color-text-muted); margin-bottom: var(--space-sm);">MD (24px)</p>
+          <div class="spacing-demo spacing-md">var(--space-md)</div>
+        </div>
+
+        <div style="margin-bottom: var(--space-lg);">
+          <p style="font-size: var(--size-small); color: var(--color-text-muted); margin-bottom: var(--space-sm);">LG (32px)</p>
+          <div class="spacing-demo spacing-lg">var(--space-lg)</div>
+        </div>
+
+        <div style="margin-bottom: var(--space-lg);">
+          <p style="font-size: var(--size-small); color: var(--color-text-muted); margin-bottom: var(--space-sm);">XL (48px)</p>
+          <div class="spacing-demo spacing-xl">var(--space-xl)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Prof. Balaji Science Academy. Design System Showcase.</p>
+  <div class="footer-links">
+    <a href="#top">Back to Top</a>
+    <a href="#typography">Typography</a>
+    <a href="#colors">Colors</a>
+    <a href="#buttons">Buttons</a>
+  </div>
+  <p style="font-size: var(--size-small); margin-top: var(--space-lg);">
+    This is a comprehensive design system for consistent and professional interfaces.
+  </p>
+</footer>
+
+<!-- SCROLL TO TOP BUTTON -->
+<button class="scroll-to-top" data-scroll-to-top">↑</button>
+
+<!-- BREAKPOINT INDICATOR (for development) -->
+<div class="breakpoint-indicator"></div>
+
+<!-- SCRIPTS -->
+<script src="js/animations.js"></script>
+<script src="js/interactions.js"></script>
+
+<script>
+// Initialize tab functionality
+document.querySelectorAll('.tab').forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+    
+    tab.classList.add('active');
+    document.querySelectorAll('.tab-content')[index].classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
