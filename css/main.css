@@ -1,0 +1,14 @@
+/* ================================================================
+   PROF. BALAJI DESIGN SYSTEM - MAIN CSS
+   Master stylesheet that imports all component styles
+   ================================================================ */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Import all CSS modules */
+@import url('./variables.css');
+@import url('./base.css');
+@import url('./components.css');
+@import url('./animations.css');
+@import url('./responsive.css');
