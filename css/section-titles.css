@@ -1,0 +1,57 @@
+/* SECTION TITLE WITH PRETITLE */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-pretitle {
+  font-size: var(--size-small);
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-pretitle::before,
+.section-pretitle::after {
+  content: '';
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(to right, var(--color-primary), transparent);
+}
+
+.section-pretitle::after {
+  background: linear-gradient(to left, var(--color-primary), transparent);
+}
+
+.section-header h2 {
+  font-size: var(--size-h2);
+  color: var(--color-primary-dark);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-pretitle {
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-pretitle::before,
+  .section-pretitle::after {
+    height: 2px;
+  }
+
+  .section-header h2 {
+    font-size: var(--size-h3);
+  }
+}
