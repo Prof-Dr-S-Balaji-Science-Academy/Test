@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics & Chemistry Coaching for Class 12 | Prof. Dr. S. Balaji</title>
+    <meta name="description" content="Expert Class 12 Physics & Chemistry coaching for CBSE & TN State Board. 25+ years teaching. Board-focused prep. Free Class 10 science on YouTube.">
+    <meta name="keywords" content="CBSE Class 12, TN State Board, Physics Coaching, Chemistry Coaching, Board Exams, Science Academy">
+    <meta name="author" content="Prof. Dr. S. Balaji">
+    <meta property="og:title" content="Prof. Dr. S. Balaji Science Academy | Physics & Chemistry for Class 12">
+    <meta property="og:description" content="Board exam-focused coaching for Class 12. 25+ years teaching, IIT Madras postdoc.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://profbalaji.in">
+    <meta property="og:image" content="https://profbalaji.in/assets/images/preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.ico">
+    <link rel="canonical" href="https://profbalaji.in">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Prof. Dr. S. Balaji Science Academy",
+        "image": "https://profbalaji.in/assets/images/preview.jpg",
+        "description": "Expert Physics & Chemistry coaching for Class 12 CBSE & TN State Board students. 25+ years teaching experience with board exam-focused strategies.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "No. 26, Avvai Street, Athiyaman Nagar",
+            "addressLocality": "Kanchipuram",
+            "addressRegion": "Tamil Nadu",
+            "postalCode": "631501",
+            "addressCountry": "IN"
+        },
+        "telephone": "+919787692116",
+        "email": "prof.balaji13@gmail.com",
+        "url": "https://profbalaji.in",
+        "sameAs": [
+            "https://www.linkedin.com/in/profdrsbalaji",
+            "https://www.youtube.com/@CBSEdigest",
+            "https://scholar.google.co.kr/citations?hl=en&pli=1&user=9NAUZ5MAAAAJ",
+            "https://profbalaji.substack.com/"
+        ],
+        "priceRange": "$$",
+        "areaServed": [
+            "Kanchipuram",
+            "Tamil Nadu",
+            "India"
+        ],
+        "knowsAbout": [
+            "Class 12 Physics",
+            "Class 12 Chemistry",
+            "CBSE Board Exams",
+            "TN State Board Exams",
+            "Online Tutoring",
+            "Hybrid Tutoring"
+        ],
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "IIT Madras"
+        },
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "PhD",
+            "about": "Physical Chemistry",
+            "issuedBy": {
+                "@type": "EducationalOrganization",
+                "name": "University of Madras"
+            }
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/color-system.css">
+    <link rel="stylesheet" href="css/shared-header-footer.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 28px !important;
+            }
+        }
+
+        .card-cta-btn {
+            text-decoration: none !important;
+        }
+
+        .icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .call-icon-btn svg {
+            width: 24px;
+            height: 24px;
+            color: inherit;
+        }
+
+        .youtube-icon-btn {
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+
+        .youtube-icon-btn svg {
+            width: 24px;
+            height: 24px;
+            color: #FF0000;
+        }
+
+        .icon-btn:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .youtube-icon-btn:hover {
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER LOADS HERE -->
+    <div id="header-container"></div>
+
+    <!-- YOUR EXISTING CONTENT HERE -->
+    <!-- HERO, COURSES, ABOUT, FAQ, BLOG, CONTACT SECTIONS -->
+
+    <!-- FOOTER LOADS HERE -->
+    <div id="footer-container"></div>
+
+    <script src="js/shared-header-footer.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Load header and footer dynamically
+        fetch('shared/header.html')
+            .then(r => r.text())
+            .then(html => document.getElementById('header-container').innerHTML = html)
+            .then(() => {
+                // Reinitialize header JS after loading
+                const hamburger = document.getElementById('hamburger');
+                const navMobile = document.getElementById('navMobile');
+                const closeMenu = document.getElementById('closeMenu');
+                const navLinks = document.querySelectorAll('.nav-link-mobile');
+
+                if (hamburger) {
+                    hamburger.addEventListener('click', () => {
+                        navMobile.classList.add('active');
+                    });
+                }
+                if (closeMenu) {
+                    closeMenu.addEventListener('click', () => {
+                        navMobile.classList.remove('active');
+                    });
+                }
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMobile.classList.remove('active');
+                    });
+                });
+            });
+
+        fetch('shared/footer.html')
+            .then(r => r.text())
+            .then(html => document.getElementById('footer-container').innerHTML = html);
+    </script>
+</body>
+</html>
