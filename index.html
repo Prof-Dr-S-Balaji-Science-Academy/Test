@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prof. Dr. S. Balaji Science Academy</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <div class="header-logo">
+    <a href="#top">PROF. DR. S. BALAJI<br>SCIENCE ACADEMY</a>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav>
+    <a href="#courses">Courses</a>
+    <a href="#features">Features</a>
+    <a href="#blogs">Blogs</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <div class="header-actions">
+    <button class="btn btn-primary btn-sm">Enroll</button>
+  </div>
+</header>
+
+<section class="hero-section" id="top">
+  <div class="container">
+    <h1>Consistently Plan, Learn and Practice</h1>
+    <p>Small steps today create stronger habits and a better tomorrow.</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+      <a href="https://plan.profbalaji.in" class="card-journey plan">
+        <div class="icon">📋</div>
+        <h3>PLAN</h3>
+        <p>Set clear goals and build your roadmap</p>
+      </a>
+
+      <a href="https://learn.profbalaji.in" class="card-journey learn">
+        <div class="icon">📚</div>
+        <h3>LEARN</h3>
+        <p>Gain knowledge. Understand better.</p>
+      </a>
+
+      <a href="https://practice.profbalaji.in" class="card-journey practice">
+        <div class="icon">🎯</div>
+        <h3>PRACTICE</h3>
+        <p>Apply regularly. Improve consistently.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="courses">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-pretitle">COURSES OFFERED</div>
+      <h2>Find your course</h2>
+    </div>
+    <!-- Your course content here -->
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-pretitle">WHY CHOOSE US</div>
+      <h2>Exceptional Learning Experience</h2>
+    </div>
+    <!-- Your features content here -->
+  </div>
+</section>
+
+<section id="blogs">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-pretitle">LATEST INSIGHTS</div>
+      <h2>From Our Blog</h2>
+    </div>
+    <!-- Your blogs content here -->
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-pretitle">COMMON QUESTIONS</div>
+      <h2>Frequently Asked</h2>
+    </div>
+    <!-- Your FAQ content here -->
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="text-align: center; margin-bottom: 1rem;">&copy; 2026 Prof. Dr. S. Balaji Science Academy</p>
+    
+    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+      <a href="https://facebook.com" class="social-icon" title="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://instagram.com" class="social-icon" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://youtube.com" class="social-icon" title="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+});
+
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+  });
+});
+</script>
+
+</body>
+</html>
