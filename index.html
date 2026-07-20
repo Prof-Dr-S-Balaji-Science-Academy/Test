@@ -25,52 +25,71 @@
             <div class="hero-illustration">
                 <svg viewBox="0 0 500 500" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-                            <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#1a56db" flood-opacity="0.12"/>
+                        <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+                            <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#1a56db" flood-opacity="0.15"/>
                         </filter>
                         <marker id="arrow" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
                             <polygon points="0 0, 10 3.5, 0 7" fill="#a8c7fa" />
                         </marker>
+                        
+                        <linearGradient id="hoodieBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#3b82f6"/>
+                            <stop offset="100%" stop-color="#1d4ed8"/>
+                        </linearGradient>
+                        <linearGradient id="hoodieFold" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#1e40af"/>
+                            <stop offset="100%" stop-color="#1e3a8a"/>
+                        </linearGradient>
+                        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1e293b"/>
+                            <stop offset="100%" stop-color="#020617"/>
+                        </linearGradient>
                     </defs>
 
-                    <path d="M 310 130 A 170 170 0 0 1 420 280" fill="none" stroke="#e6f0fd" stroke-width="6" marker-end="url(#arrow)"/>
-                    <path d="M 360 370 A 170 170 0 0 1 140 370" fill="none" stroke="#e6f0fd" stroke-width="6" marker-end="url(#arrow)"/>
-                    <path d="M 80 280 A 170 170 0 0 1 190 130" fill="none" stroke="#e6f0fd" stroke-width="6" marker-end="url(#arrow)"/>
+                    <path d="M 290 130 A 160 160 0 0 1 390 270" fill="none" stroke="#e6f0fd" stroke-width="6" marker-end="url(#arrow)"/>
+                    <path d="M 330 360 A 160 160 0 0 1 170 360" fill="none" stroke="#e6f0fd" stroke-width="6" marker-end="url(#arrow)"/>
+                    <path d="M 110 270 A 160 160 0 0 1 210 130" fill="none" stroke="#e6f0fd" stroke-width="6" marker-end="url(#arrow)"/>
 
-                    <g id="student" transform="translate(250, 420)">
-                        <path d="M -75 80 C -60 -20, -30 -40, 0 -40 C 30 -40, 60 -20, 75 80 Z" fill="#1a56db" />
-                        <path d="M -40 -15 L -60 80 M 40 -15 L 60 80" stroke="#1545b3" stroke-width="4" stroke-linecap="round"/>
-                        <path d="M -30 -25 C -30 -60, 30 -60, 30 -25 C 30 10, -30 10, -30 -25 Z" fill="#1545b3" />
-                        <path d="M -12 -50 Q 0 -40 12 -50 Z" fill="#fcd0b4" />
-                        <path d="M -22 -65 C -25 -100, 25 -100, 22 -65 C 22 -40, -22 -40, -22 -65 Z" fill="#0b1c3c" />
-                        <path d="M -25 -75 Q 0 -110 25 -75 Z" fill="#0b1c3c" />
+                    <g transform="translate(250, 90)">
+                        <circle cx="0" cy="0" r="52" fill="#ffffff" filter="url(#shadow)"/>
+                        <rect x="-18" y="-24" width="36" height="32" rx="4" fill="none" stroke="#1a56db" stroke-width="3"/>
+                        <path d="M -10 -28 V -20 M 10 -28 V -20" stroke="#1a56db" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M -18 -10 H 18" stroke="#1a56db" stroke-width="3"/>
+                        <circle cx="-8" cy="2" r="2.5" fill="#1a56db"/>
+                        <circle cx="0" cy="2" r="2.5" fill="#1a56db"/>
+                        <circle cx="8" cy="2" r="2.5" fill="#1a56db"/>
+                        <text x="0" y="32" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0b1c3c" text-anchor="middle" letter-spacing="1">PLAN</text>
                     </g>
 
-                    <g transform="translate(250, 110)">
-                        <circle cx="0" cy="0" r="48" fill="#ffffff" filter="url(#shadow)"/>
-                        <rect x="-16" y="-22" width="32" height="28" rx="4" fill="none" stroke="#1a56db" stroke-width="3"/>
-                        <path d="M -10 -26 V -18 M 10 -26 V -18" stroke="#1a56db" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M -16 -10 H 16" stroke="#1a56db" stroke-width="3"/>
-                        <circle cx="-7" cy="0" r="2" fill="#1a56db"/>
-                        <circle cx="0" cy="0" r="2" fill="#1a56db"/>
-                        <circle cx="7" cy="0" r="2" fill="#1a56db"/>
-                        <text x="0" y="28" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#0b1c3c" text-anchor="middle" letter-spacing="1">PLAN</text>
+                    <g transform="translate(390, 320)">
+                        <circle cx="0" cy="0" r="52" fill="#ffffff" filter="url(#shadow)"/>
+                        <path d="M -20 -14 C -10 -18, -2 -18, 0 -14 V 12 C -2 8, -10 8, -20 12 Z" fill="none" stroke="#1a56db" stroke-width="3" stroke-linejoin="round"/>
+                        <path d="M 20 -14 C 10 -18, 2 -18, 0 -14 V 12 C 2 8, 10 8, 20 12 Z" fill="none" stroke="#1a56db" stroke-width="3" stroke-linejoin="round"/>
+                        <path d="M -14 -6 H -4 M -14 0 H -4 M 4 -6 H 14 M 4 0 H 14" stroke="#1a56db" stroke-width="2" stroke-linecap="round"/>
+                        <text x="0" y="32" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0b1c3c" text-anchor="middle" letter-spacing="1">LEARN</text>
                     </g>
 
-                    <g transform="translate(100, 310)">
-                        <circle cx="0" cy="0" r="48" fill="#ffffff" filter="url(#shadow)"/>
-                        <path d="M -18 -12 C -10 -16, -2 -16, 0 -12 V 10 C -2 6, -10 6, -18 10 Z" fill="none" stroke="#1a56db" stroke-width="3" stroke-linejoin="round"/>
-                        <path d="M 18 -12 C 10 -16, 2 -16, 0 -12 V 10 C 2 6, 10 6, 18 10 Z" fill="none" stroke="#1a56db" stroke-width="3" stroke-linejoin="round"/>
-                        <path d="M -12 -5 H -4 M -12 0 H -4 M 4 -5 H 12 M 4 0 H 12" stroke="#1a56db" stroke-width="2" stroke-linecap="round"/>
-                        <text x="0" y="28" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#0b1c3c" text-anchor="middle" letter-spacing="1">LEARN</text>
+                    <g transform="translate(110, 320)">
+                        <circle cx="0" cy="0" r="52" fill="#ffffff" filter="url(#shadow)"/>
+                        <circle cx="0" cy="-8" r="18" fill="none" stroke="#1a56db" stroke-width="3"/>
+                        <circle cx="0" cy="-8" r="7" fill="none" stroke="#1a56db" stroke-width="3"/>
+                        <path d="M 12 -20 L 24 -32 M 18 -32 H 24 V -26" stroke="#1a56db" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <text x="0" y="32" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0b1c3c" text-anchor="middle" letter-spacing="1">PRACTICE</text>
                     </g>
 
-                    <g transform="translate(400, 310)">
-                        <circle cx="0" cy="0" r="48" fill="#ffffff" filter="url(#shadow)"/>
-                        <circle cx="0" cy="-6" r="16" fill="none" stroke="#1a56db" stroke-width="3"/>
-                        <circle cx="0" cy="-6" r="6" fill="none" stroke="#1a56db" stroke-width="3"/>
-                        <path d="M 10 -16 L 20 -26 M 16 -26 H 20 V -22" stroke="#1a56db" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        <text x="0" y="28" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="#0b1c3c" text-anchor="middle" letter-spacing="1">PRACTICE</text>
+                    <g id="student-3d" transform="translate(250, 390)">
+                        <path d="M -75 110 C -55 -10, -35 -40, 0 -40 C 35 -40, 55 -10, 75 110 Z" fill="url(#hoodieBody)" />
+                        <path d="M -45 -15 Q -50 45 -65 110" fill="none" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M 45 -15 Q 50 45 65 110" fill="none" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+                        
+                        <path d="M -15 -40 Q 0 -30 15 -40 L 10 -15 L -10 -15 Z" fill="#fcd0b4" />
+                        
+                        <path d="M -35 -20 C -45 25, -20 45, 0 45 C 20 45, 45 25, 35 -20 C 20 -35, -20 -35, -35 -20 Z" fill="url(#hoodieFold)" />
+                        <path d="M -25 -20 C -25 15, -10 30, 0 30 C 10 30, 25 15, 25 -20" fill="none" stroke="#0f172a" stroke-width="5" stroke-opacity="0.3" stroke-linecap="round"/>
+                        
+                        <path d="M -22 -65 C -25 -105, 25 -105, 22 -65 C 26 -35, -26 -35, -22 -65 Z" fill="url(#hairGrad)" />
+                        <path d="M -25 -80 Q 0 -115 25 -80 Z" fill="url(#hairGrad)" />
+                        <path d="M -15 -90 Q 5 -115 15 -85" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
                     </g>
                 </svg>
             </div>
