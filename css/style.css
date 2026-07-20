@@ -1,14 +1,18 @@
 :root {
+    /* Color Palette */
     --bg-white: #ffffff;
     --text-dark: #0b1c3c;
     --text-blue: #1a56db;
     --text-gray: #4b5563;
+    --border-light: #eaeff8;
     
-    --card-plan-bg: #f0f7ff;
-    --card-learn-bg: #f0fff4;
-    --card-practice-bg: #faf5ff;
-    
+    /* Typography */
     --font-main: 'Inter', sans-serif;
+
+    /* Global Spacing Variables for consistency across all current and future sections */
+    --section-padding-desktop: 6rem 8%;
+    --section-padding-mobile: 4rem 5%;
+    --max-content-width: 1300px;
 }
 
 * {
@@ -30,7 +34,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
+    padding: 1.5rem var(--section-padding-desktop);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -41,6 +45,7 @@ body {
     font-weight: 800;
     color: #000;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .desktop-nav {
@@ -87,29 +92,34 @@ body {
 /* ================= HERO SECTION ================= */
 .hero-section {
     background-color: var(--bg-white);
-    padding: 4rem 5%;
-    overflow: hidden;
+    padding: var(--section-padding-desktop);
+    padding-bottom: 0; /* Removing bottom padding to let the features bar sit flush */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-container {
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: var(--max-content-width);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+    margin-bottom: 4rem;
 }
 
+/* Text Content */
 .hero-content {
     flex: 1;
-    max-width: 500px;
+    max-width: 550px;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 4rem; /* Large font for desktop */
     line-height: 1.1;
     margin-bottom: 1.5rem;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
 }
 
 .hero-content h1 .dark-text {
@@ -126,6 +136,7 @@ body {
     color: var(--text-gray);
     font-size: 1.1rem;
     margin-bottom: 2.5rem;
+    line-height: 1.6;
 }
 
 .btn-large {
@@ -133,69 +144,73 @@ body {
     font-size: 1rem;
 }
 
-/* ================= CARDS ================= */
-.hero-cards {
-    flex: 1.5;
-    display: flex;
-    gap: 1.5rem;
-    justify-content: flex-end;
-}
-
-.card {
-    border-radius: 20px;
-    padding: 2rem 1.5rem;
-    width: 240px;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-    display: flex;
-    flex-direction: column;
-}
-
-.card-plan { background-color: var(--card-plan-bg); }
-.card-learn { background-color: var(--card-learn-bg); }
-.card-practice { background-color: var(--card-practice-bg); }
-
-.card-number {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.card-plan .card-number, .card-plan h3 { color: #1e50b5; }
-.card-learn .card-number, .card-learn h3 { color: #2e7d32; }
-.card-practice .card-number, .card-practice h3 { color: #673ab7; }
-
-.card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.card p {
-    font-size: 0.9rem;
-    color: var(--text-gray);
-    line-height: 1.4;
-    margin-bottom: 2rem;
-}
-
-.card-icon {
-    margin-top: auto;
-    text-align: right;
+/* Illustration Container */
+.hero-illustration {
+    flex: 1.2;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    height: 120px;
+    align-items: center;
+    max-width: 650px;
+}
+
+/* ================= HERO FEATURES BAR ================= */
+.hero-features-bar {
+    width: 100%;
+    max-width: var(--max-content-width);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    padding: 0 1.5rem;
+}
+
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: #f0f5ff;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.feature-text h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.2rem;
+}
+
+.feature-text p {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    line-height: 1.4;
+}
+
+.feature-divider {
+    width: 1px;
+    height: 40px;
+    background-color: var(--border-light);
 }
 
 /* ================= FOOTER ================= */
 .main-footer {
     background-color: var(--bg-white);
-    padding: 3rem 5%;
+    padding: var(--section-padding-desktop);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid var(--border-light);
 }
 
 .footer-icons {
@@ -222,52 +237,55 @@ body {
 
 /* ================= MEDIA QUERIES (MOBILE) ================= */
 @media (max-width: 992px) {
+    .main-header {
+        padding: 1rem var(--section-padding-mobile);
+    }
+
+    .hero-section {
+        padding: var(--section-padding-mobile);
+        padding-bottom: 0;
+    }
+
     .hero-container {
         flex-direction: column;
-        align-items: flex-start;
+        text-align: center;
+        gap: 3rem;
     }
-    
+
     .hero-content {
-        margin-bottom: 3rem;
         max-width: 100%;
-    }
-
-    .hero-cards {
+        display: flex;
         flex-direction: column;
-        width: 100%;
-        gap: 1rem;
-        justify-content: center;
-    }
-    
-    .card {
-        width: 100%;
-        max-width: 100%;
-        flex-direction: row;
         align-items: center;
-        padding: 1.5rem;
-        height: auto;
     }
 
-    .card-icon {
-        height: auto;
-        margin-top: 0;
-        margin-left: auto;
+    /* Requirement: Header font to be slightly reduced in mobile view */
+    .hero-content h1 {
+        font-size: 2.4rem; 
+        letter-spacing: -0.5px;
+    }
+    
+    .hero-illustration {
+        width: 100%;
+        max-width: 500px;
     }
 
-    .card-icon svg {
-        width: 80px;
-        height: 80px;
+    /* Stack the features vertically on mobile */
+    .hero-features-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 2rem 0;
     }
-    
-    .card-text-container {
-        flex: 1;
+
+    .feature-item {
+        width: 100%;
+        padding: 0;
     }
-    
-    .card p {
-        margin-bottom: 0;
-        display: inline;
+
+    .feature-divider {
+        display: none; /* Hide dividers when stacked */
     }
-    .card h3 { margin-bottom: 0.2rem; }
 }
 
 @media (max-width: 768px) {
@@ -277,10 +295,6 @@ body {
     
     .mobile-menu-toggle {
         display: block;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.8rem;
     }
 
     .footer-icons {
