@@ -1,17 +1,13 @@
 :root {
-    /* Color Palette */
     --bg-white: #ffffff;
     --text-dark: #0b1c3c;
     --text-blue: #1a56db;
     --text-gray: #4b5563;
     --border-light: #eaeff8;
     
-    /* Typography */
     --font-main: 'Inter', sans-serif;
-
-    /* Global Spacing Variables for consistency across all current and future sections */
-    --section-padding-desktop: 6rem 8%;
-    --section-padding-mobile: 4rem 5%;
+    --section-padding-desktop: 4rem 8%;
+    --section-padding-mobile: 2rem 5%;
     --max-content-width: 1300px;
 }
 
@@ -26,6 +22,7 @@ body {
     background-color: var(--bg-white);
     color: var(--text-dark);
     line-height: 1.5;
+    overflow-x: hidden;
 }
 
 /* ================= HEADER ================= */
@@ -34,10 +31,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem var(--section-padding-desktop);
+    padding: 1rem var(--section-padding-desktop);
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: 80px;
 }
 
 .logo {
@@ -45,7 +43,6 @@ body {
     font-weight: 800;
     color: #000;
     letter-spacing: 0.5px;
-    text-transform: uppercase;
 }
 
 .desktop-nav {
@@ -87,15 +84,18 @@ body {
 .mobile-menu-toggle {
     display: none;
     cursor: pointer;
+    z-index: 1001;
 }
 
 /* ================= HERO SECTION ================= */
 .hero-section {
     background-color: var(--bg-white);
-    padding: var(--section-padding-desktop);
-    padding-bottom: 0; /* Removing bottom padding to let the features bar sit flush */
+    padding: 1rem var(--section-padding-desktop) 0;
+    /* Fit tightly to screen height minus header */
+    min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -106,7 +106,7 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem; /* Reduced to bring features bar up */
 }
 
 /* Text Content */
@@ -116,26 +116,19 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 4rem; /* Large font for desktop */
+    font-size: 4rem;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     letter-spacing: -1.5px;
 }
 
-.hero-content h1 .dark-text {
-    color: var(--text-dark);
-    font-weight: 800;
-}
-
-.hero-content h1 .blue-text {
-    color: var(--text-blue);
-    font-weight: 800;
-}
+.hero-content h1 .dark-text { color: var(--text-dark); font-weight: 800; }
+.hero-content h1 .blue-text { color: var(--text-blue); font-weight: 800; }
 
 .hero-content p {
     color: var(--text-gray);
     font-size: 1.1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     line-height: 1.6;
 }
 
@@ -150,7 +143,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 650px;
+    max-width: 600px;
 }
 
 /* ================= HERO FEATURES BAR ================= */
@@ -202,54 +195,12 @@ body {
     background-color: var(--border-light);
 }
 
-/* ================= FOOTER ================= */
-.main-footer {
-    background-color: var(--bg-white);
-    padding: var(--section-padding-desktop);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    border-top: 1px solid var(--border-light);
-}
-
-.footer-icons {
-    display: flex;
-    gap: 2rem;
-}
-
-.footer-icons a {
-    color: #333;
-    transition: transform 0.2s, opacity 0.2s;
-    display: inline-flex;
-}
-
-.footer-icons a:hover {
-    opacity: 0.7;
-    transform: translateY(-2px);
-}
-
-.footer-copyright {
-    color: var(--text-gray);
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
 /* ================= MEDIA QUERIES (MOBILE) ================= */
 @media (max-width: 992px) {
-    .main-header {
-        padding: 1rem var(--section-padding-mobile);
-    }
-
-    .hero-section {
-        padding: var(--section-padding-mobile);
-        padding-bottom: 0;
-    }
-
     .hero-container {
         flex-direction: column;
         text-align: center;
-        gap: 3rem;
+        gap: 2rem;
     }
 
     .hero-content {
@@ -259,7 +210,6 @@ body {
         align-items: center;
     }
 
-    /* Requirement: Header font to be slightly reduced in mobile view */
     .hero-content h1 {
         font-size: 2.4rem; 
         letter-spacing: -0.5px;
@@ -270,7 +220,6 @@ body {
         max-width: 500px;
     }
 
-    /* Stack the features vertically on mobile */
     .hero-features-bar {
         flex-direction: column;
         align-items: flex-start;
@@ -278,28 +227,58 @@ body {
         padding: 2rem 0;
     }
 
-    .feature-item {
-        width: 100%;
-        padding: 0;
-    }
-
-    .feature-divider {
-        display: none; /* Hide dividers when stacked */
-    }
+    .feature-item { width: 100%; padding: 0; }
+    .feature-divider { display: none; }
 }
 
 @media (max-width: 768px) {
-    .desktop-nav {
-        display: none;
+    .main-header {
+        padding: 1rem var(--section-padding-mobile);
     }
     
+    /* Strictly force the logo to one line on mobile */
+    .logo {
+        font-size: clamp(9px, 2.8vw, 14px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 80%; /* leave room for hamburger */
+    }
+
     .mobile-menu-toggle {
         display: block;
     }
 
-    .footer-icons {
-        gap: 1.2rem;
-        flex-wrap: wrap;
-        justify-content: center;
+    /* Mobile Navigation Drawer */
+    .desktop-nav {
+        position: fixed;
+        top: 80px; /* Right below the header */
+        right: -100%; /* Hidden by default */
+        width: 280px;
+        height: calc(100vh - 80px);
+        background-color: var(--bg-white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+        transition: right 0.3s ease-in-out;
+    }
+
+    .desktop-nav.active {
+        right: 0;
+    }
+    
+    .desktop-nav a {
+        width: 100%;
+        padding: 0.5rem 0;
+        font-size: 1.1rem;
+        border-bottom: 1px solid var(--border-light);
+    }
+    
+    .desktop-nav .btn {
+        border-bottom: none;
+        text-align: center;
+        margin-top: 1rem;
     }
 }
