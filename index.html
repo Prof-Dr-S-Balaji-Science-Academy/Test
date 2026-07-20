@@ -12,7 +12,7 @@
     <div id="header-placeholder"></div>
 
     <main class="hero-section">
-        <div class="hero-container">
+        <div class="container hero-container">
             
             <div class="hero-content">
                 <h1><span class="dark-text">Consistently</span><br>
@@ -23,106 +23,125 @@
             </div>
 
             <div class="hero-illustration">
-                <svg viewBox="0 0 500 500" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 600 500" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
-                            <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#1a56db" flood-opacity="0.15"/>
+                        <pattern id="dotGrid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <circle cx="2" cy="2" r="1.5" fill="#e2e8f0" />
+                        </pattern>
+                        
+                        <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+                            <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000000" flood-opacity="0.08"/>
                         </filter>
-                        <marker id="arrow" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
-                            <polygon points="0 0, 10 3.5, 0 7" fill="#a8c7fa" />
+                        
+                        <marker id="arrowHead" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+                            <polygon points="0 0, 6 3, 0 6" fill="#2563eb" />
                         </marker>
                         
-                        <linearGradient id="hoodieBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.5"/>
+                            <stop offset="100%" stop-color="#2563eb" stop-opacity="1"/>
+                        </linearGradient>
+
+                        <linearGradient id="hoodieMain" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#3b82f6"/>
                             <stop offset="100%" stop-color="#1d4ed8"/>
                         </linearGradient>
-                        <linearGradient id="hoodieFold" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <linearGradient id="hoodieShadow" x1="0%" y1="0%" x2="0%" y2="100%">
                             <stop offset="0%" stop-color="#1e40af"/>
-                            <stop offset="100%" stop-color="#1e3a8a"/>
-                        </linearGradient>
-                        <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#1e293b"/>
-                            <stop offset="100%" stop-color="#020617"/>
+                            <stop offset="100%" stop-color="#172554"/>
                         </linearGradient>
                     </defs>
 
-                    <path d="M 290 130 A 160 160 0 0 1 390 270" fill="none" stroke="#e6f0fd" stroke-width="6" marker-end="url(#arrow)"/>
-                    <path d="M 330 360 A 160 160 0 0 1 170 360" fill="none" stroke="#e6f0fd" stroke-width="6" marker-end="url(#arrow)"/>
-                    <path d="M 110 270 A 160 160 0 0 1 210 130" fill="none" stroke="#e6f0fd" stroke-width="6" marker-end="url(#arrow)"/>
+                    <rect x="400" y="150" width="200" height="350" fill="url(#dotGrid)" />
 
-                    <g transform="translate(250, 90)">
-                        <circle cx="0" cy="0" r="52" fill="#ffffff" filter="url(#shadow)"/>
-                        <rect x="-18" y="-24" width="36" height="32" rx="4" fill="none" stroke="#1a56db" stroke-width="3"/>
-                        <path d="M -10 -28 V -20 M 10 -28 V -20" stroke="#1a56db" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M -18 -10 H 18" stroke="#1a56db" stroke-width="3"/>
-                        <circle cx="-8" cy="2" r="2.5" fill="#1a56db"/>
-                        <circle cx="0" cy="2" r="2.5" fill="#1a56db"/>
-                        <circle cx="8" cy="2" r="2.5" fill="#1a56db"/>
-                        <text x="0" y="32" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0b1c3c" text-anchor="middle" letter-spacing="1">PLAN</text>
+                    <path d="M 230 110 A 180 180 0 0 0 100 240" fill="none" stroke="url(#arrowGrad)" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowHead)"/>
+                    
+                    <path d="M 170 340 A 200 120 0 0 0 430 340" fill="none" stroke="url(#arrowGrad)" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowHead)"/>
+                    
+                    <path d="M 470 240 A 180 180 0 0 0 350 100" fill="none" stroke="url(#arrowGrad)" stroke-width="6" stroke-linecap="round" marker-end="url(#arrowHead)"/>
+
+                    <g transform="translate(290, 80)">
+                        <circle cx="0" cy="0" r="45" fill="#ffffff" filter="url(#softShadow)"/>
+                        <rect x="-14" y="-22" width="28" height="26" rx="4" fill="#eff6ff"/>
+                        <rect x="-14" y="-22" width="28" height="26" rx="4" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                        <line x1="-8" y1="-26" x2="-8" y2="-18" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="8" y1="-26" x2="8" y2="-18" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="-14" y1="-10" x2="14" y2="-10" stroke="#1d4ed8" stroke-width="2.5"/>
+                        <rect x="-8" y="-4" width="4" height="4" fill="#1d4ed8" rx="1"/>
+                        <rect x="4" y="-4" width="4" height="4" fill="#1d4ed8" rx="1"/>
+                        <text x="0" y="24" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle" letter-spacing="0.5">PLAN</text>
                     </g>
 
-                    <g transform="translate(390, 320)">
-                        <circle cx="0" cy="0" r="52" fill="#ffffff" filter="url(#shadow)"/>
-                        <path d="M -20 -14 C -10 -18, -2 -18, 0 -14 V 12 C -2 8, -10 8, -20 12 Z" fill="none" stroke="#1a56db" stroke-width="3" stroke-linejoin="round"/>
-                        <path d="M 20 -14 C 10 -18, 2 -18, 0 -14 V 12 C 2 8, 10 8, 20 12 Z" fill="none" stroke="#1a56db" stroke-width="3" stroke-linejoin="round"/>
-                        <path d="M -14 -6 H -4 M -14 0 H -4 M 4 -6 H 14 M 4 0 H 14" stroke="#1a56db" stroke-width="2" stroke-linecap="round"/>
-                        <text x="0" y="32" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0b1c3c" text-anchor="middle" letter-spacing="1">LEARN</text>
+                    <g transform="translate(130, 290)">
+                        <circle cx="0" cy="0" r="45" fill="#ffffff" filter="url(#softShadow)"/>
+                        <path d="M -16 -12 C -8 -15, 0 -15, 0 -12 L 0 8 C 0 5, -8 5, -16 8 Z" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2.5" stroke-linejoin="round"/>
+                        <path d="M 16 -12 C 8 -15, 0 -15, 0 -12 L 0 8 C 0 5, 8 5, 16 8 Z" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2.5" stroke-linejoin="round"/>
+                        <line x1="-12" y1="-6" x2="-4" y2="-4" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="-12" y1="-1" x2="-4" y2="1" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="12" y1="-6" x2="4" y2="-4" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="12" y1="-1" x2="4" y2="1" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"/>
+                        <text x="0" y="24" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle" letter-spacing="0.5">LEARN</text>
                     </g>
 
-                    <g transform="translate(110, 320)">
-                        <circle cx="0" cy="0" r="52" fill="#ffffff" filter="url(#shadow)"/>
-                        <circle cx="0" cy="-8" r="18" fill="none" stroke="#1a56db" stroke-width="3"/>
-                        <circle cx="0" cy="-8" r="7" fill="none" stroke="#1a56db" stroke-width="3"/>
-                        <path d="M 12 -20 L 24 -32 M 18 -32 H 24 V -26" stroke="#1a56db" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        <text x="0" y="32" font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#0b1c3c" text-anchor="middle" letter-spacing="1">PRACTICE</text>
+                    <g transform="translate(460, 290)">
+                        <circle cx="0" cy="0" r="45" fill="#ffffff" filter="url(#softShadow)"/>
+                        <circle cx="0" cy="-6" r="16" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2.5"/>
+                        <circle cx="0" cy="-6" r="6" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+                        <line x1="8" y1="-14" x2="20" y2="-26" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round"/>
+                        <polyline points="14 -26, 20 -26, 20 -20" fill="none" stroke="#1d4ed8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <text x="0" y="24" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle" letter-spacing="0.5">PRACTICE</text>
                     </g>
 
-                    <g id="student-3d" transform="translate(250, 390)">
-                        <path d="M -75 110 C -55 -10, -35 -40, 0 -40 C 35 -40, 55 -10, 75 110 Z" fill="url(#hoodieBody)" />
-                        <path d="M -45 -15 Q -50 45 -65 110" fill="none" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
-                        <path d="M 45 -15 Q 50 45 65 110" fill="none" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+                    <g id="student" transform="translate(300, 390)">
+                        <path d="M -60 110 C -45 -10, -30 -30, -5 -30 C 25 -30, 45 -10, 60 110 Z" fill="url(#hoodieMain)" />
+                        <path d="M -35 -10 C -45 30, -55 80, -60 110" fill="none" stroke="#1e40af" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M 35 -10 C 45 30, 55 80, 60 110" fill="none" stroke="#1e40af" stroke-width="3" stroke-linecap="round"/>
                         
-                        <path d="M -15 -40 Q 0 -30 15 -40 L 10 -15 L -10 -15 Z" fill="#fcd0b4" />
+                        <path d="M -10 -35 L 5 -35 L 5 -20 L -10 -20 Z" fill="#fcd0b4" />
+                        <circle cx="12" cy="-45" r="5" fill="#fcd0b4" />
                         
-                        <path d="M -35 -20 C -45 25, -20 45, 0 45 C 20 45, 45 25, 35 -20 C 20 -35, -20 -35, -35 -20 Z" fill="url(#hoodieFold)" />
-                        <path d="M -25 -20 C -25 15, -10 30, 0 30 C 10 30, 25 15, 25 -20" fill="none" stroke="#0f172a" stroke-width="5" stroke-opacity="0.3" stroke-linecap="round"/>
-                        
-                        <path d="M -22 -65 C -25 -105, 25 -105, 22 -65 C 26 -35, -26 -35, -22 -65 Z" fill="url(#hairGrad)" />
-                        <path d="M -25 -80 Q 0 -115 25 -80 Z" fill="url(#hairGrad)" />
-                        <path d="M -15 -90 Q 5 -115 15 -85" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M -30 -20 C -40 20, -15 35, -5 35 C 10 35, 30 20, 20 -20 C 5 -30, -15 -30, -30 -20 Z" fill="url(#hoodieShadow)" />
+                        <path d="M -20 -20 C -20 10, -5 25, -5 25 C 5 25, 15 10, 15 -20" fill="none" stroke="#172554" stroke-width="4" stroke-opacity="0.4" stroke-linecap="round"/>
+
+                        <path d="M -18 -65 C -25 -100, 20 -100, 22 -65 C 24 -40, -15 -40, -18 -65 Z" fill="#0f172a" />
+                        <path d="M -20 -75 Q -5 -110 18 -80" fill="#0f172a" />
+                        <path d="M 18 -80 Q 25 -75 22 -65" fill="#1e293b" />
+                        <path d="M -10 -90 Q 5 -105 15 -85" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
                     </g>
                 </svg>
             </div>
         </div>
 
-        <div class="hero-features-bar">
-            <div class="feature-item">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <div class="container">
+            <div class="hero-features-bar">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Plan with Purpose</h4>
+                        <p>Set clear goals and<br>build your roadmap.</p>
+                    </div>
                 </div>
-                <div class="feature-text">
-                    <h4>Plan with Purpose</h4>
-                    <p>Set clear goals and build your roadmap.</p>
+                <div class="feature-divider"></div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Learn Effectively</h4>
+                        <p>Understand better with<br>focused learning.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="feature-divider"></div>
-            <div class="feature-item">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                </div>
-                <div class="feature-text">
-                    <h4>Learn Effectively</h4>
-                    <p>Understand better with focused learning.</p>
-                </div>
-            </div>
-            <div class="feature-divider"></div>
-            <div class="feature-item">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                </div>
-                <div class="feature-text">
-                    <h4>Practice Consistently</h4>
-                    <p>Reinforce your learning and track progress.</p>
+                <div class="feature-divider"></div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5h-2v11h2v-11z"></path><path d="M21.5 6.5h-2v11h2v-11z"></path><path d="M9.5 9h-3v6h3v-6z"></path><path d="M18.5 9h-3v6h3v-6z"></path><path d="M9.5 12h6"></path></svg>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Practice Consistently</h4>
+                        <p>Reinforce your learning<br>and track progress.</p>
+                    </div>
                 </div>
             </div>
         </div>
