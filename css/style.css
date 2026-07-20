@@ -1,0 +1,291 @@
+:root {
+    --bg-white: #ffffff;
+    --text-dark: #0b1c3c;
+    --text-blue: #1a56db;
+    --text-gray: #4b5563;
+    
+    --card-plan-bg: #f0f7ff;
+    --card-learn-bg: #f0fff4;
+    --card-practice-bg: #faf5ff;
+    
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+/* ================= HEADER ================= */
+.main-header {
+    background-color: var(--bg-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #000;
+    letter-spacing: 0.5px;
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    color: var(--text-gray);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.desktop-nav a:hover {
+    color: var(--text-dark);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--text-blue);
+    color: #fff !important;
+}
+
+.btn-primary:hover {
+    background-color: #1545b3;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+/* ================= HERO SECTION ================= */
+.hero-section {
+    background-color: var(--bg-white);
+    padding: 4rem 5%;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.hero-content h1 .dark-text {
+    color: var(--text-dark);
+    font-weight: 800;
+}
+
+.hero-content h1 .blue-text {
+    color: var(--text-blue);
+    font-weight: 800;
+}
+
+.hero-content p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+}
+
+/* ================= CARDS ================= */
+.hero-cards {
+    flex: 1.5;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-end;
+}
+
+.card {
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    width: 240px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-plan { background-color: var(--card-plan-bg); }
+.card-learn { background-color: var(--card-learn-bg); }
+.card-practice { background-color: var(--card-practice-bg); }
+
+.card-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.card-plan .card-number, .card-plan h3 { color: #1e50b5; }
+.card-learn .card-number, .card-learn h3 { color: #2e7d32; }
+.card-practice .card-number, .card-practice h3 { color: #673ab7; }
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+.card-icon {
+    margin-top: auto;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 120px;
+}
+
+/* ================= FOOTER ================= */
+.main-footer {
+    background-color: var(--bg-white);
+    padding: 3rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-icons a {
+    color: #333;
+    transition: transform 0.2s, opacity 0.2s;
+    display: inline-flex;
+}
+
+.footer-icons a:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+
+.footer-copyright {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ================= MEDIA QUERIES (MOBILE) ================= */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .hero-content {
+        margin-bottom: 3rem;
+        max-width: 100%;
+    }
+
+    .hero-cards {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 100%;
+        flex-direction: row;
+        align-items: center;
+        padding: 1.5rem;
+        height: auto;
+    }
+
+    .card-icon {
+        height: auto;
+        margin-top: 0;
+        margin-left: auto;
+    }
+
+    .card-icon svg {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .card-text-container {
+        flex: 1;
+    }
+    
+    .card p {
+        margin-bottom: 0;
+        display: inline;
+    }
+    .card h3 { margin-bottom: 0.2rem; }
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .footer-icons {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
